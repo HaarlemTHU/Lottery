@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/lottery_icon.svg" rel="icon"/>
+    <title>Lottery</title>
+</head>
+<body>
+<div>
+    <h1>Lottery Business Create Lottery</h1>
+    <p>{{.msg}}</p>
+    <form method="post" action="/business/home/create-lottery">
+        <p>创建新抽奖</p>
+        <label for="lotteryName">主题</label>
+        <input type="text" id="lotteryName" name="lotteryName" placeholder="主题">
+        <label for="lotteryGift">奖品设置</label>
+        <input type="text" id="lotteryGift" name="lotteryGift" placeholder="奖品设置">
+        <label for="lotteryStartTime">开始时间</label>
+        <input type="text" id="lotteryStartTime" name="lotteryStartTime" placeholder="开始时间">
+        <label for="lotteryTime">持续时间</label>
+        <input type="text" id="lotteryTime" name="lotteryTime" placeholder="持续时间">
+        <label for="lotteryLabel">兴趣标签</label>
+        <input type="text" id="lotteryLabel" name="lotteryLabel" placeholder="兴趣标签">
+        <label for="lotteryQueueLength">预计抽奖规模</label>
+        <input type="text" id="lotteryQueueLength" name="lotteryQueueLength" placeholder="预计抽奖规模">
+        <button type="submit">提交</button>
+        <a href="/business/home">返回home</a>
+    </form>
+</div>
+</body>
