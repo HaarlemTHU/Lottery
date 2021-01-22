@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/lottery_icon.svg" rel="icon"/>
+    <title>Lottery</title>
+</head>
+<body>
+<div>
+    <p>Customer Lottery</p>
+    <p>Lottery前台信息，分成历史、正在进行、还未开始</p>
+    <p>发布商家:{{.lotteryBusiness}}</p>
+    <p>抽奖主题:{{.lotteryName}}</p>
+    <p>奖品列表:{{.lotteryGift}}</p>
+    <p>开始时间:{{.lotteryStartTime}}</p>
+    <p>持续时间:{{.lotteryTime}}秒</p>
+    {{if eq .lotteryState "0"}}
+        <p>抽奖已结束</p>
+        <p>参与抽奖人数:{{.lotteryTotalCustomer}}</p>
+        <p>中奖信息：{{.gift}}</p>
+    {{end}}
+    {{if eq .lotteryState "1"}}
+        <p>参与抽奖人数:{{.lotteryTotalCustomer}}</p>
+        {{if .lotteryAccess}}
+            <form method="post" action="/customer/lottery/{{.lotteryId}}">
+                <button type="submit">参与抽奖</button>
+            </form>
+        {{else}}
+            <p>中奖信息：{{.gift}}</p>
+        {{end}}
+    {{end}}
+    {{if eq .lotteryState "2"}}
+        <p>抽奖还未开始</p>
+    {{end}}
+</div>
+</body>
